@@ -4,17 +4,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/DodgerBlue">
+    tools:context=".MainActivity">
 
+
+    <EditText
+        android:id="@+id/txt_Nome2"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:hint="nome"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_titulo" />
 
     <TextView
+        android:id="@+id/txt_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="@string/lb_tituloApp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <EditText
+        android:id="@+id/txt_Nome"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:hint="sobre nome"
+        android:inputType="text"
+        android:text="Sobrenome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Nome2" />
+
+    <EditText
+        android:id="@+id/txt_Nome3"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:hint="nome do curso desejado"
+        android:inputType="text"
+        android:text="@string/nome_do_curso_desejado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Nome" />
+
+    <EditText
+        android:id="@+id/txt_Nome4"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:hint="telefone"
+        android:inputType="text"
+        android:text="Telefone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Nome3" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="52dp"
+        android:backgroundTint="@color/DodgerBlue"
+
+        android:text="LIMPAR"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
+        android:layout_marginBottom="52dp"
+        android:text="SALVAR"
+        android:backgroundTint="@color/DodgerBlue"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintStart_toEndOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="200dp"
+        android:text="FINALIZAR"
+        android:backgroundTint="@color/DodgerBlue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Nome4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
