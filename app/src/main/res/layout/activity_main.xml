@@ -8,7 +8,7 @@
 
 
     <EditText
-        android:id="@+id/txt_Nome2"
+        android:id="@+id/txt_nome"
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:layout_margin="16dp"
@@ -18,10 +18,10 @@
         android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_titulo" />
+        app:layout_constraintTop_toBottomOf="@+id/lb_TituloTela" />
 
     <TextView
-        android:id="@+id/txt_titulo"
+        android:id="@+id/lb_TituloTela"
         android:background="@color/amarelo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <EditText
-        android:id="@+id/txt_Nome"
+        android:id="@+id/txt_sobreNome"
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:layout_margin="16dp"
@@ -45,10 +45,10 @@
         android:text="Sobrenome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_Nome2" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_nome" />
 
     <EditText
-        android:id="@+id/txt_Nome3"
+        android:id="@+id/txt_cursoDesejado"
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:layout_margin="16dp"
@@ -57,10 +57,10 @@
         android:inputType="text"
         android:text="@string/nome_do_curso_desejado"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_Nome" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_sobreNome" />
 
     <EditText
-        android:id="@+id/txt_Nome4"
+        android:id="@+id/txt_telefone"
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:layout_margin="16dp"
@@ -69,10 +69,10 @@
         android:inputType="text"
         android:text="Telefone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_Nome3" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_cursoDesejado" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_Limpar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -80,22 +80,22 @@
         android:backgroundTint="@color/DodgerBlue"
 
         android:text="LIMPAR"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Finalizar"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_salvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="180dp"
         android:layout_marginBottom="52dp"
         android:text="SALVAR"
         android:backgroundTint="@color/DodgerBlue"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintStart_toEndOf="@+id/button" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_Finalizar"
+        app:layout_constraintStart_toEndOf="@+id/btn_Limpar" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_Finalizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -105,6 +105,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_Nome4" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_telefone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
