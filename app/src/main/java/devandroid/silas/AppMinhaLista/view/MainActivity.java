@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        preferences = getSharedPreferences(NOME_PREFERENCES, 0);
-        SharedPreferences.Editor listaVip = preferences.edit();
+        preferences = getSharedPreferences(NOME_SHAREDPREFERENCES , 0);
+        SharedPreferences.Editor ListaEdit = preferences.edit();
 
 
         int parada = 0;
