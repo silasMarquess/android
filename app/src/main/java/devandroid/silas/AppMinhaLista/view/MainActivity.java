@@ -80,6 +80,12 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        String nome = txt_nome.getText().toString();
+                        String SobreNome = txt_sobreNome.getText().toString();
+                        Curso c = new Curso(txt_cursoDesejadoEditText.getText().toString());
+                        String telefone = txt_telefone.getText().toString();
+
+                        Pessoa pessoa = new Pessoa(nome, SobreNome,c,telefone);
 
                         ListaEdit.putString("PrimeiroNome",pessoa.getNome());
                         ListaEdit.putString("sobreNome",pessoa.getSobrenome());
