@@ -17,8 +17,12 @@ import devandroid.silas.AppMinhaLista.model.Pessoa;
 public class MainActivity extends AppCompatActivity {
 
     Pessoa pessoa;
-    SharedPreferences preferences;
-    public static final String NOME_PREFERENCES = "pref_listaVIP";
+
+
+
+    SharedPreferences preferences ;
+    public static final String NOME_SHAREDPREFERENCES = "SHARE_INSERIR";
+
 
     @Override
 
@@ -45,10 +49,10 @@ public class MainActivity extends AppCompatActivity {
         Button btn_buscar = findViewById(R.id.btn_buscarDados);
         Button btn_Limpar = findViewById(R.id.btn_Limpar);
 
-        txt_nome.setText(pessoa.getNome().toUpperCase());
+       /* txt_nome.setText(pessoa.getNome().toUpperCase());
         txt_sobreNome.setText(pessoa.getSobrenome());
         txt_cursoDesejadoEditText.setText(pessoa.getCurso().getNomeCurso());
-        txt_telefone.setText(pessoa.getTelefone());
+        txt_telefone.setText(pessoa.getTelefone());*/
 
         //EVENTOS
 
@@ -98,6 +102,20 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
+                        String nome = txt_nome.getText().toString();
+                        String SobreNome = txt_sobreNome.getText().toString();
+                        Curso c = new Curso(txt_cursoDesejadoEditText.getText().toString());
+                        String telefone = txt_telefone.getText().toString();
+
+                        Pessoa pessoa = new Pessoa(nome, SobreNome,c,telefone);
+
+                        ListaEdit.putString("PrimeiroNome",pessoa.getNome());
+                        ListaEdit.putString("sobreNome",pessoa.getSobrenome());
+                        ListaEdit.putString("cursoSelecionado",pessoa.getCurso().getNomeCurso());
+                        ListaEdit.putString("telefone",pessoa.getTelefone());
+                        ListaEdit.apply();
+
 
                         Toast.makeText(MainActivity.this, "Dados de: " + pessoa.toString() + " Salvos com sucesso", Toast.LENGTH_LONG).show();
                         // finish();

@@ -1,8 +1,5 @@
 package devandroid.silas.AppMinhaLista.model;
 
-import java.util.List;
-import java.util.Vector;
-
 public class Pessoa {
 
   private String nome;
