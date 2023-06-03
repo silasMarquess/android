@@ -85,13 +85,6 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String nome = txt_nome.getText().toString();
-                        String SobreNome = txt_sobreNome.getText().toString();
-                        String cursoSelecionado = txt_cursoDesejadoEditText.getText().toString();
-                        String telefone = txt_telefone.getText().toString();
-
-                        pessoa = new Pessoa(nome, SobreNome,
-                                new Curso(cursoSelecionado), telefone);
 
                         Toast.makeText(MainActivity.this, "Dados de: " + pessoa.toString() + " Salvos com sucesso", Toast.LENGTH_LONG).show();
                         // finish();
