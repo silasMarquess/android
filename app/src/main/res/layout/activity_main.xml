@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:background="@color/amarelo"
         android:text="@string/lb_tituloApp"
-        android:textSize="20sp"
+        android:textSize="23sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,7 +87,7 @@
         android:id="@+id/btn_salvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="180dp"
+        android:layout_marginStart="168dp"
         android:layout_marginBottom="52dp"
         android:backgroundTint="@color/DodgerBlue"
         android:text="SALVAR"
@@ -106,5 +106,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_telefone" />
+
+    <Button
+        android:id="@+id/btn_buscarDados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BUSCAR"
+        android:backgroundTint="@color/DodgerBlue"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Finalizar"
+        app:layout_constraintEnd_toStartOf="@+id/btn_salvar"
+        app:layout_constraintHorizontal_bias="0.584"
+        app:layout_constraintStart_toEndOf="@+id/btn_Limpar"
+        app:layout_constraintTop_toBottomOf="@+id/txt_telefone"
+        app:layout_constraintVertical_bias="0.62" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
