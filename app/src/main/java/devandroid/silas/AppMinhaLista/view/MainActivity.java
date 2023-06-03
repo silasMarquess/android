@@ -28,10 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         int parada =0;
 
-        pessoa = new Pessoa("SILAS MARQUES","Marques de Sousa",new Curso("Engenharia de Alimento"),"99981041614");
-        String PrimeiroNome = pessoa.getNome();
-        String segundoNome = pessoa.getSobrenome();
-
         preferences = getSharedPreferences(NOME_SHAREDPREFERENCES,0);
         SharedPreferences.Editor ListaEdit = preferences.edit();
 
