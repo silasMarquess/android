@@ -93,12 +93,6 @@ public class MainActivity extends AppCompatActivity {
                         pessoa = new Pessoa(nome, SobreNome,
                                 new Curso(cursoSelecionado), telefone);
 
-                        listaVip.putString("nome", pessoa.getNome());
-                        listaVip.putString("sobreNome", pessoa.getSobrenome());
-                        listaVip.putString("nomeCurso", pessoa.getCurso().getNomeCurso());
-                        listaVip.putString("telefone", pessoa.getTelefone());
-                        listaVip.apply();
-
                         Toast.makeText(MainActivity.this, "Dados de: " + pessoa.toString() + " Salvos com sucesso", Toast.LENGTH_LONG).show();
                         // finish();
                     }
