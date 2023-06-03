@@ -3,6 +3,7 @@ package devandroid.silas.AppMinhaLista.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,27 +17,36 @@ import devandroid.silas.AppMinhaLista.model.Pessoa;
 public class MainActivity extends AppCompatActivity {
 
     Pessoa pessoa;
+    SharedPreferences preferences;
+    public static final String NOME_PREFERENCES = "pref_listaVIP";
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        int parada =0;
+        preferences = getSharedPreferences(NOME_PREFERENCES, 0);
+        SharedPreferences.Editor listaVip = preferences.edit();
 
-        pessoa = new Pessoa("nome","Marques de Sousa",new Curso("Engenharia de Alimento"),"99981041614");
-        String PrimeiroNome = pessoa.getNome();
-        String segundoNome = pessoa.getSobrenome();
+
+        int parada = 0;
+        pessoa = new Pessoa();
+
+        pessoa.setNome(preferences.getString("nome", ""));
+        pessoa.setSobrenome(preferences.getString("sobreNome", ""));
+        pessoa.setCurso(new Curso(preferences.getString("nomeCurso", "")));
+        pessoa.setTelefone(preferences.getString("telefone", ""));
 
 
         //LOGANDO TEXTO NA TELA DA VIWER
         EditText txt_nome = findViewById(R.id.txt_nome);
-        EditText txt_sobreNome =findViewById(R.id.txt_sobreNome);
-        EditText txt_cursoDesejadoEditText=findViewById(R.id.txt_cursoDesejado);
+        EditText txt_sobreNome = findViewById(R.id.txt_sobreNome);
+        EditText txt_cursoDesejadoEditText = findViewById(R.id.txt_cursoDesejado);
         EditText txt_telefone = findViewById(R.id.txt_telefone);
 
 
-        Button btn_salvar =findViewById(R.id.btn_salvar);
+        Button btn_salvar = findViewById(R.id.btn_salvar);
         Button btn_Finalizar = findViewById(R.id.btn_Finalizar);
 
 
@@ -65,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
 
                     public void onClick(View view) {
-                        Toast.makeText(MainActivity.this,"VOLTE SEMPRE AMIGO",Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "VOLTE SEMPRE AMIGO", Toast.LENGTH_LONG).show();
                         finish();
                     }
                 }
@@ -80,11 +90,17 @@ public class MainActivity extends AppCompatActivity {
                         String cursoSelecionado = txt_cursoDesejadoEditText.getText().toString();
                         String telefone = txt_telefone.getText().toString();
 
-                        pessoa = new Pessoa(nome,SobreNome,
-                                new Curso(cursoSelecionado),telefone);
+                        pessoa = new Pessoa(nome, SobreNome,
+                                new Curso(cursoSelecionado), telefone);
 
-                        Toast.makeText(MainActivity.this,"Dados de: "+pessoa.toString()+" Salvos com sucesso",Toast.LENGTH_LONG).show();
-                       // finish();
+                        listaVip.putString("nome", pessoa.getNome());
+                        listaVip.putString("sobreNome", pessoa.getSobrenome());
+                        listaVip.putString("nomeCurso", pessoa.getCurso().getNomeCurso());
+                        listaVip.putString("telefone", pessoa.getTelefone());
+                        listaVip.apply();
+
+                        Toast.makeText(MainActivity.this, "Dados de: " + pessoa.toString() + " Salvos com sucesso", Toast.LENGTH_LONG).show();
+                        // finish();
                     }
                 }
         );
