@@ -27,8 +27,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         int parada =0;
+
+        pessoa = new Pessoa("SILAS MARQUES","Marques de Sousa",new Curso("Engenharia de Alimento"),"99981041614");
+        String PrimeiroNome = pessoa.getNome();
+        String segundoNome = pessoa.getSobrenome();
+
         preferences = getSharedPreferences(NOME_SHAREDPREFERENCES,0);
         SharedPreferences.Editor ListaEdit = preferences.edit();
+
+
 
 
         //LOGANDO TEXTO NA TELA DA VIWER
@@ -40,10 +47,16 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn_salvar =findViewById(R.id.btn_salvar);
         Button btn_Finalizar = findViewById(R.id.btn_Finalizar);
+
+
+       /* txt_nome.setText(pessoa.getNome().toUpperCase());
+        txt_sobreNome.setText(pessoa.getSobrenome());
+        txt_cursoDesejadoEditText.setText(pessoa.getCurso().getNomeCurso());
+        txt_telefone.setText(pessoa.getTelefone());*/
+
+        //EVENTOS
         Button btn_Limpar = findViewById(R.id.btn_Limpar);
 
-
-        //EVENTOS DE BUTÃO
         btn_Limpar.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -71,13 +84,6 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
-                        String nome = txt_nome.getText().toString();
-                        String sobreNome = txt_sobreNome.getText().toString();
-                        Curso c = new Curso(txt_cursoDesejadoEditText.getText().toString());
-                        String telefone = txt_telefone.getText().toString();
-
-                        Pessoa pessoa = new Pessoa(nome, sobreNome,c,telefone);
 
                         ListaEdit.putString("PrimeiroNome",pessoa.getNome());
                         ListaEdit.putString("sobreNome",pessoa.getSobrenome());
