@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                         txt_sobreNome.setText("");
                         txt_cursoDesejadoEditText.setText("");
                         txt_telefone.setText("");
+                        
                         ListaEdit.clear();
                         ListaEdit.apply();
 
