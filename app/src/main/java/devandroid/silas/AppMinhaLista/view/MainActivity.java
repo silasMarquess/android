@@ -30,9 +30,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         preferences = getSharedPreferences(NOME_SHAREDPREFERENCES, 0);
         ListaEdit = preferences.edit();
 
+ 
 
         int parada = 0;
         pessoa = new Pessoa();
