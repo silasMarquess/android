@@ -101,19 +101,44 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_telefone" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_telefone"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btn_buscarDados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BUSCAR"
         android:backgroundTint="@color/DodgerBlue"
+        android:text="BUSCAR"
         app:layout_constraintBottom_toTopOf="@+id/btn_Finalizar"
         app:layout_constraintEnd_toStartOf="@+id/btn_salvar"
-        app:layout_constraintHorizontal_bias="0.584"
+        app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toEndOf="@+id/btn_Limpar"
         app:layout_constraintTop_toBottomOf="@+id/txt_telefone"
-        app:layout_constraintVertical_bias="0.62" />
+        app:layout_constraintVertical_bias="0.829" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_buscarDados"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_telefone"
+        app:layout_constraintVertical_bias="0.349" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecione um Curso:"
+        android:textColorHint="@color/design_default_color_primary_variant"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_telefone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
