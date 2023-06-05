@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         adp.setDropDownViewResource(android.R.layout.simple_list_item_1);
         spinner.setAdapter(adp);
 
+
         btn_buscar.setOnClickListener(
                 new View.OnClickListener() {
                     @Override

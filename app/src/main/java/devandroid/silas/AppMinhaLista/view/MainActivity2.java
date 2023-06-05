@@ -20,10 +20,10 @@ public class MainActivity2 extends AppCompatActivity {
 
     private void CumutarTelaSplah() {
 
-        new Handler().postDelayed(new Runnable() {
+        new Handler().postDelayed(new Runnable() {//método de espera
             @Override
             public void run() {
-                Intent telaPrincipal = new Intent(MainActivity2.this,MainActivity.class);
+                Intent telaPrincipal = new Intent(MainActivity2.this,MainActivity.class);// Execultar um Intent (Intenção) em um certo tempo
                 startActivity(telaPrincipal);
                 finish();
             }
