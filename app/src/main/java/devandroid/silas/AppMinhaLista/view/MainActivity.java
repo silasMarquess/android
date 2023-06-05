@@ -11,18 +11,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import devandroid.silas.AppMinhaLista.R;
+import devandroid.silas.AppMinhaLista.controller.PessoaController;
 import devandroid.silas.AppMinhaLista.model.Curso;
 import devandroid.silas.AppMinhaLista.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
     Pessoa pessoa;
-
-
-    public SharedPreferences preferences;
-    public SharedPreferences.Editor ListaEdit;
-    public static final String NOME_SHAREDPREFERENCES = "SHARE_INSERIR";
-
+    public static PessoaController _control;
 
     @Override
 
@@ -30,16 +26,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        preferences = getSharedPreferences(NOME_SHAREDPREFERENCES, 0);
-        ListaEdit = preferences.edit();
-
- 
-
-        int parada = 0;
-        pessoa = new Pessoa();
-
+        _control = new PessoaController(this);
         //LOGANDO TEXTO NA TELA DA VIWER
+
         EditText txt_nome = findViewById(R.id.txt_nome);
         EditText txt_sobreNome = findViewById(R.id.txt_sobreNome);
         EditText txt_cursoDesejadoEditText = findViewById(R.id.txt_cursoDesejado);
@@ -51,27 +40,15 @@ public class MainActivity extends AppCompatActivity {
         Button btn_buscar = findViewById(R.id.btn_buscarDados);
         Button btn_Limpar = findViewById(R.id.btn_Limpar);
 
-       /* txt_nome.setText(pessoa.getNome().toUpperCase());
-        txt_sobreNome.setText(pessoa.getSobrenome());
-        txt_cursoDesejadoEditText.setText(pessoa.getCurso().getNomeCurso());
-        txt_telefone.setText(pessoa.getTelefone());*/
-
-        //EVENTOS
 
         btn_buscar.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String nome = preferences.getString("PrimeiroNome", "nd");
-                        String sobreNome = preferences.getString("SobreNome", "nd");
-                        Curso c = new Curso(preferences.getString("cursoSelecionado", "nd"));
-                        String telefone = preferences.getString("telefone", "nd");
-                        pessoa = new Pessoa(nome, sobreNome, c, telefone);
-
-                        txt_nome.setText(pessoa.getNome());
-                        txt_sobreNome.setText(pessoa.getSobrenome());
-                        txt_cursoDesejadoEditText.setText(pessoa.getCurso().getNomeCurso());
-                        txt_telefone.setText(pessoa.getTelefone());
+                        txt_nome.setText(_control.ControlBuscarDados().getNome());
+                        txt_sobreNome.setText(_control.ControlBuscarDados().getSobrenome());
+                        txt_cursoDesejadoEditText.setText(_control.ControlBuscarDados().getCurso().getNomeCurso());
+                        txt_telefone.setText(_control.ControlBuscarDados().getTelefone());
                     }
                 }
         );
@@ -84,10 +61,8 @@ public class MainActivity extends AppCompatActivity {
                         txt_sobreNome.setText("");
                         txt_cursoDesejadoEditText.setText("");
                         txt_telefone.setText("");
-                        
-                        ListaEdit.clear();
-                        ListaEdit.apply();
-
+                        _control.ControlLimparDados();
+                        Toast.makeText(MainActivity.this,"Dados e Campos Limpos copm sucesso !", Toast.LENGTH_LONG).show();
                     }
                 }
         );
@@ -108,23 +83,17 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
                         String nome = txt_nome.getText().toString();
                         String SobreNome = txt_sobreNome.getText().toString();
                         Curso c = new Curso(txt_cursoDesejadoEditText.getText().toString());
                         String telefone = txt_telefone.getText().toString();
 
-                        Pessoa pessoa = new Pessoa(nome, SobreNome, c, telefone);
-
-                        ListaEdit.putString("PrimeiroNome", pessoa.getNome());
-                        ListaEdit.putString("sobreNome", pessoa.getSobrenome());
-                        ListaEdit.putString("cursoSelecionado", pessoa.getCurso().getNomeCurso());
-                        ListaEdit.putString("telefone", pessoa.getTelefone());
-                        ListaEdit.apply();
-
-
-                        Toast.makeText(MainActivity.this, "Dados de: " + pessoa.toString() + " Salvos com sucesso", Toast.LENGTH_LONG).show();
-                        // finish();
+                        _control.SalvarDadosUser(new Pessoa(nome, SobreNome, c, telefone));
+                        txt_nome.setText("");
+                        txt_sobreNome.setText("");
+                        txt_cursoDesejadoEditText.setText("");
+                        txt_telefone.setText("");
+                         Toast.makeText(MainActivity.this, "Dados Salvos com sucesso", Toast.LENGTH_LONG).show();
                     }
                 }
         );
