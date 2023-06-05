@@ -1,8 +1,6 @@
 package devandroid.silas.AppMinhaLista.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -61,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
                         txt_sobreNome.setText("");
                         txt_cursoDesejadoEditText.setText("");
                         txt_telefone.setText("");
+
+
                     }
                 }
         );
