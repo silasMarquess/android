@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
     Pessoa pessoa;
 
 
-
-    SharedPreferences preferences ;
+    public SharedPreferences preferences;
+    public SharedPreferences.Editor ListaEdit;
     public static final String NOME_SHAREDPREFERENCES = "SHARE_INSERIR";
 
 
@@ -30,9 +30,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        preferences = getSharedPreferences(NOME_SHAREDPREFERENCES , 0);
-        SharedPreferences.Editor ListaEdit = preferences.edit();
 
+        preferences = getSharedPreferences(NOME_SHAREDPREFERENCES, 0);
+        ListaEdit = preferences.edit();
+
+ 
 
         int parada = 0;
         pessoa = new Pessoa();
@@ -82,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
                         txt_sobreNome.setText("");
                         txt_cursoDesejadoEditText.setText("");
                         txt_telefone.setText("");
+                        ListaEdit.clear();
+                        ListaEdit.apply();
+
                     }
                 }
         );
@@ -108,12 +113,12 @@ public class MainActivity extends AppCompatActivity {
                         Curso c = new Curso(txt_cursoDesejadoEditText.getText().toString());
                         String telefone = txt_telefone.getText().toString();
 
-                        Pessoa pessoa = new Pessoa(nome, SobreNome,c,telefone);
+                        Pessoa pessoa = new Pessoa(nome, SobreNome, c, telefone);
 
-                        ListaEdit.putString("PrimeiroNome",pessoa.getNome());
-                        ListaEdit.putString("sobreNome",pessoa.getSobrenome());
-                        ListaEdit.putString("cursoSelecionado",pessoa.getCurso().getNomeCurso());
-                        ListaEdit.putString("telefone",pessoa.getTelefone());
+                        ListaEdit.putString("PrimeiroNome", pessoa.getNome());
+                        ListaEdit.putString("sobreNome", pessoa.getSobrenome());
+                        ListaEdit.putString("cursoSelecionado", pessoa.getCurso().getNomeCurso());
+                        ListaEdit.putString("telefone", pessoa.getTelefone());
                         ListaEdit.apply();
 
 
