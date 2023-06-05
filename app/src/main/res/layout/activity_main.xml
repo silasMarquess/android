@@ -132,7 +132,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LISTA DE CURSOS"
+        android:text="Selecione um Curso:"
         android:textColorHint="@color/design_default_color_primary_variant"
         android:textSize="16sp"
         android:textStyle="bold"
